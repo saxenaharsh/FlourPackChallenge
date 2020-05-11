@@ -1,24 +1,27 @@
-package com.HarshSaxena;
 
-import java.sql.SQLOutput;
+package com.HarshSaxena;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        int myIntValue = 5 / 3;
-        float myFloatValue = 5f / 3f;
-        double myDoubleValue = 5d / 3d;
+    }
+    public static boolean canPack(int bigCount, int smallCount, int goal){
+        if(bigCount < 0 || smallCount < 0 || goal < 0){
+            return false;
+        }
+        int sum = (bigCount * 5) + smallCount;
+        if(sum >= goal){
+            if(bigCount == goal){
+                System.out.println("true");
+                return true;
+            }
 
-        System.out.println("myIntValue = " + myIntValue);
-        System.out.println("myFloatValue = " + myFloatValue);
-        System.out.println("myDoubleValue = " + myDoubleValue);
-
-        double myPoundValue = 200d;
-        double myConversionConstant = 0.45359237d;
-
-        double myConversionValue = myPoundValue * myConversionConstant;
-        System.out.println("200 Pounds = " + myConversionValue + "Kilograms ");
-
+        }else{
+            if(goal % 5 <= smallCount){
+                return true;
+            }
+        }
+        return false;
     }
 }
